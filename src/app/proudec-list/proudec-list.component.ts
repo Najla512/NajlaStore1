@@ -1,4 +1,4 @@
-import { Component, Injectable } from '@angular/core';
+import { Component, Injectable, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { product } from '../models/product';
 import { proudctslist } from '../models/proudcts_list';
@@ -11,7 +11,7 @@ import { ProductsService } from '../services/products.service';
   templateUrl: './proudec-list.component.html',
   styleUrls: ['./proudec-list.component.css']
 })
-export class ProudecListComponent {
+export class ProudecListComponent implements OnInit{
   proudct:proudctslist[]=[] ;
 
   constructor(private httpService: ProductsService,private router: Router) { }

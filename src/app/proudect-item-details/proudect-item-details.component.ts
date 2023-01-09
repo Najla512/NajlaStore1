@@ -50,7 +50,7 @@ export class ProudectItemDetailsComponent {
    addToCart():void{
    //alert(this.products.price)
    //alert(this.products.id)
-  // this.local.saveData(this.products)
+ this.local.saveData(this.products)
    // local.saveData(this.products)
   //  this.router.navigate(['/Mycard', { id:this.id,name:this.name,price:this.price, image:this.image}]);
   }
