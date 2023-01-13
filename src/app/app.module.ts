@@ -14,6 +14,8 @@ import { CartService } from './services/cart.service';
 import { ProductsService } from './services/products.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { CartlistComponent } from './cartlist/cartlist.component';
+import { CheckoutItemComponent } from './checkout-item/checkout-item.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { FormsModule } from '@angular/forms';
     ProudectItemComponent,
     ProudecListComponent,
     CheckoutComponent,
-    OrderConfirmationComponent
+    OrderConfirmationComponent,
+    CartlistComponent,
+    CheckoutItemComponent
   ],
   imports: [
     BrowserModule,

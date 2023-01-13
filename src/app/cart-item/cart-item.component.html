@@ -13,7 +13,7 @@
     </div>
   </div> -->
 
-  <div class="container text-dark bg-white mt-5 pb-2 mb-3">
+  <!-- <div class="container text-dark bg-white mt-5 pb-2 mb-3">
     <div class="row p-4 bg-mobile">
       <div class="col-md-6">
         <h2 class="text-success">Cart Details</h2>
@@ -22,6 +22,21 @@
         <button type="button"   (click)="checkout()" class="btn btn-custom pull-right">checkout</button>
       </div>
     </div>
-    <app-cart-item-details *ngFor="let p of cart" [card]="p"></app-cart-item-details >
+    <app-cart-item-details *ngFor="let p of cartItems" [cart]="p"></app-cart-item-details >
 
-  </div>
+  </div> -->
+
+  <div class="row p-3 effects" >
+    <div class="col-md-3"  >
+      <img src="{{cartItems.p.image}}" class="img-responsive" >
+    </div>
+    <div class="col-md-3">
+      <h4>{{cartItems.p.name}}</h4>
+      <h5>${{cartItems.p.price}}</h5>
+   
+    </div>
+    <h5>quantity:{{cartItems.quantity}}</h5>
+    <div class="col-md-3">
+      
+<button  class="btn" (click)="delete(cartItems)"><i class="fa fa-trash"></i> Delete</button>
+    </div>

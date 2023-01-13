@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap');
+/* @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap');
 body{
 background: rgb(155, 154, 154);
 font-family: 'Roboto', sans-serif;
@@ -53,9 +53,7 @@ display: inline-block;
 display: -webkit-inline-box;
 padding-top: 5px;
 }
-img{
-width: 35%;
-}
+
 .color-block {
 float: left;
 position: relative;
@@ -137,4 +135,8 @@ font-size: 15px;
 padding-top: 10px;
 padding-bottom: 10px;
 }
-}
+} */
+
+img{
+    width: 35%;
+    }

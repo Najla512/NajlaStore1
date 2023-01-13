@@ -4,6 +4,7 @@ export class product {
     price:number;
     image:string;
 
+
     constructor() {
         this.id = 0
         this.name = ''

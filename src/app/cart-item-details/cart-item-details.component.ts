@@ -1,6 +1,7 @@
 import { Component, Injectable, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Cart } from '../models/Cart';
+import { proudctslist } from '../models/proudcts_list';
 import { CartService } from '../services/cart.service';
 
 @Component({
@@ -12,8 +13,8 @@ import { CartService } from '../services/cart.service';
   providedIn: 'root'
 })
 export class CartItemDetailsComponent {
-  @Input() card: Cart 
-
+  //@Input() cart: Cart 
+  @Input() product: Cart
    //MyCard:Cart[]=[];
   //products: product = new product;
 
@@ -22,9 +23,9 @@ export class CartItemDetailsComponent {
   // name:string='';
   // image:string='';
   // price:string='';
-constructor(private route: ActivatedRoute,private router: Router,private localStore: CartService){
-  this.card=new Cart
-}
+  constructor(private router: Router){
+    this.product=new Cart;
+  }
   ngOnInit(): void {
     //this.card=new Cart
 //  this.MyCard=  this.localStore.getData('MyItems');

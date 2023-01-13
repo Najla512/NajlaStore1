@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
+import { Cart } from '../models/Cart';
 
 @Component({
   selector: 'app-checkout',
@@ -6,5 +8,34 @@ import { Component } from '@angular/core';
   styleUrls: ['./checkout.component.css']
 })
 export class CheckoutComponent {
+  @Input() products: Cart[]=[]
+  total: number=0;
+  Address:string='';
+  fullname:string='';
+  cart:Cart[]= [];
 
+  constructor(private router: Router){
+
+//    this.product=new Cart[];
+  }
+  ngOnInit(): void {
+    //   JSON.parse(localStorage.getItem('Mycart') || '{}')((books: Cart[]) => {
+    //     this.cartItems = books;
+    //     console.log(this.cartItems);
+    // });
+    this.products =JSON.parse(localStorage.getItem('MyCART') || '{}');
+    for (let index = 0; index <=Object.keys(this.products).length; index++) {
+      const currentcart = this.products[index];
+      var count=currentcart.p.price * currentcart.quantity
+  this.total+=count
+}
+}
+
+submit(){
+  alert('Thank you for your request, we wish you a nice day')
+  this.cart=[]
+  localStorage.setItem('MyCART',JSON.stringify(this.cart))
+  this.router.navigate(['']);
+  
+}
 }

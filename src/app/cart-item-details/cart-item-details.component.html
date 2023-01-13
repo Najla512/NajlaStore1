@@ -17,17 +17,16 @@
 
   <div class="row p-3 effects" >
     <div class="col-md-3"  >
-      <img src="{{card.p.image}}" class="img-responsive" >
+      <img src="{{product.p.image}}" class="img-responsive" >
     </div>
     <div class="col-md-3">
-      <h4>{{card.p.name}}</h4>
-      <h5>${{card.p.price}}</h5>
+      <h4>{{product.p.name}}</h4>
+      <h5>${{product.p.price}}</h5>
    
     </div>
-
+    <h5>{{product.quantity}}</h5>
     <div class="col-md-3">
       
-<button  class="btn" (click)="delete()"><i class="fa fa-trash"></i> Delete</button>
 
     </div>
     <!-- <div class="col-md-3">

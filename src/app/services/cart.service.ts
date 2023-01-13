@@ -2,6 +2,7 @@ import { Inject, Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { Cart } from '../models/Cart';
 import { SESSION_STORAGE, StorageService } from 'ngx-webstorage-service';
+import { product } from '../models/product';
 @Injectable({
   providedIn: 'root'
 })
@@ -17,50 +18,11 @@ export class CartService {
    }
  }
  
-  saveData (p:any){
-   this.product$.next(p);
+  saveData (p:product){
+  
  
  alert('4')
- alert(p)
  
- //   this.Mycart=this.getData();
- 
-     // const newCItem = new Cart
-     // newCItem.p = p
- 
- 
- //     this.Mycart.push(newCItem)
- //     console.log('4')
- // //   for(let i=0;i<product.length;i++){
- // // const Mycart=this.Mycart[i];
- // //   }
- //     //localStorage.setItem(key, JSON.stringify(value));
- //     this.storage.set(this.STORAGE_KEY, this.Mycart)
- //     console.log('5')
-   
- 
-     // const productId = p.id
-     // const cartItems = this.getData()
- 
-   //   // check if product is already in cart
-   //   let productInCart
-   //   for (let index = 0; index < cartItems.length; index++) {
-   //     const cartItem = cartItems[index];
-   //     if (cartItem.p.id === productId) {
-   //       productInCart = cartItem
-   //     }
-   //   }
- 
-     
-   //     // else, add a new cart item
-   //     const newCartItem = new Cart
-   //     newCartItem.p = p
- 
-   //     cartItems.push(newCartItem)
-   // alert(cartItems);
-   
-   // localStorage.setItem("Cart", JSON.stringify(cartItems));
-    // this.storage.set(this.STORAGE_KEY,JSON.stringify(cartItems))
    }
  
    public  getData(): Cart []{

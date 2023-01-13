@@ -1,4 +1,4 @@
-import { Component, Injectable } from '@angular/core';
+import { Component, Injectable, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Cart } from '../models/Cart';
 import { product } from '../models/product';
@@ -13,37 +13,50 @@ import { CartService } from '../services/cart.service';
   providedIn: 'root'
 })
 export class CartItemComponent {
+  @Input() cartItems: Cart
   
-  
-  products: product = new product;
-  
-  cart:Cart[]=[];
+ 
+  cart:Cart[]= [];
 
-  id: number=0;
-  name:string='';
-  image:string='';
-  price:string='';
-  constructor(private route: ActivatedRoute,private router: Router,private localStore: CartService){}
-  ngOnInit(): void {
-//  this.MyCard=  this.localStore.getData('MyItems');
-  //  this.id = this.route.snapshot.params['id'];
-  //   this.name = this.route.snapshot.params['name'];
-  //   this.image = this.route.snapshot.params['image'];
-  //   this.price = this.route.snapshot.params['price'];
-   
- //  this.product=new proudctslist 
-//this.cart=this.localStore.getData();
-
-// this.route.params.subscribe(params => { 
-//     this.id = params['id']; 
-
-
-// });
-    
+  constructor(private route: ActivatedRoute,private router: Router,private localStore: CartService){
+    this.cartItems=new Cart;
   }
+  
+
+
+
+
+
+  
   checkout(){
 
     this.router.navigate(['/Checkout']);
 
+  }
+  delete(cartItem:Cart){
+
+
+   this.cart =JSON.parse(localStorage.getItem('MyCART') || '{}');
+   
+   //alert(Object.keys(this.cart).indexOf(cartItem))
+   //let index = this.cart.indexOf(cartItem);
+  let index = this.cart.findIndex(o => o.p.id === cartItem.p.id);
+
+  delete this.cart[index]
+  if(Object.keys(this.cart).length==0){
+    this.cart=[]
+    localStorage.setItem('MyCART',JSON.stringify(this.cart))
+    alert('Deleted successfully')
+
+  }else{
+    localStorage.setItem('MyCART',JSON.stringify(this.cart))
+    alert('Deleted successfully')
+  }
+ // this.cart.splice(0,index);
+
+  //   Object.keys(this.cart).forEach((element,index)=>{
+  //     if(element==cartItem.p) delete this.cart[index];
+  //  });
+  
   }
 }
