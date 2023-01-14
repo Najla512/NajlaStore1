@@ -1,5 +1,6 @@
 import { Component, Injectable, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Cart } from '../models/Cart';
 import { product } from '../models/product';
 import { proudctslist } from '../models/proudcts_list';
 import { ProductsService } from '../services/products.service';
@@ -27,5 +28,5 @@ this.httpService.getUsers().subscribe(res =>
   MyCard(){
     this.router.navigate(['/Mycard']);
   }
-  
+ 
 }

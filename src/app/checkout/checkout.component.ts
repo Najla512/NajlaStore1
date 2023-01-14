@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { Cart } from '../models/Cart';
 
@@ -8,7 +8,7 @@ import { Cart } from '../models/Cart';
   styleUrls: ['./checkout.component.css']
 })
 export class CheckoutComponent {
-  @Input() products: Cart[]=[]
+  @Output() products: Cart[]=[]
   total: number=0;
   Address:string='';
   fullname:string='';
@@ -37,5 +37,8 @@ submit(){
   localStorage.setItem('MyCART',JSON.stringify(this.cart))
   this.router.navigate(['']);
   
+}
+validateName(_value:string){
+console.log(_value)
 }
 }

@@ -90,4 +90,8 @@ localStorage.setItem('MyCART',JSON.stringify(this.cart))
 }
 
   }
+  
+  MyCard(){
+    this.router.navigate(['/Mycard']);
+  }
 }

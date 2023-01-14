@@ -42,7 +42,8 @@ export class CartItemComponent {
    //let index = this.cart.indexOf(cartItem);
   let index = this.cart.findIndex(o => o.p.id === cartItem.p.id);
 
-  delete this.cart[index]
+ // delete this.cart[index]
+   this.cart.splice(index,1);
   if(Object.keys(this.cart).length==0){
     this.cart=[]
     localStorage.setItem('MyCART',JSON.stringify(this.cart))
@@ -57,6 +58,7 @@ export class CartItemComponent {
   //   Object.keys(this.cart).forEach((element,index)=>{
   //     if(element==cartItem.p) delete this.cart[index];
   //  });
-  
+  location.reload();
+
   }
 }
