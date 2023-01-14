@@ -51,7 +51,7 @@ export class CartItemComponent {
 
   }else{
     localStorage.setItem('MyCART',JSON.stringify(this.cart))
-    alert('Deleted successfully')
+
   }
  // this.cart.splice(0,index);
 
