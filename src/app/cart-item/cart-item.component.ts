@@ -4,6 +4,8 @@ import { Cart } from '../models/Cart';
 import { product } from '../models/product';
 import { CartService } from '../services/cart.service';
 import { Location } from '@angular/common';
+import {ButtonModule} from 'primeng/button';
+
 @Component({
   selector: 'app-cart-item',
   templateUrl: './cart-item.component.html',
@@ -15,7 +17,8 @@ import { Location } from '@angular/common';
 export class CartItemComponent {
   @Input() cartItems: Cart
   
- 
+  deleteSelection = ''
+
   cart:Cart[]= [];
 
   constructor(private route: ActivatedRoute,private router: Router,private localStore: CartService,private location: Location){

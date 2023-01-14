@@ -37,6 +37,9 @@
     </div>
     <h5>quantity:{{cartItems.quantity}}</h5>
     <div class="col-md-3">
-      
-<button  class="btn" (click)="delete(cartItems)"><i class="fa fa-trash"></i> Delete</button>
+
+<p-button class="btn" value="delete" (click)="delete(cartItems)"   icon="pi pi-trash" [(ngModel)]="deleteSelection"><i class="fa fa-trash"></i> Delete</p-button>
+
+
+
     </div>

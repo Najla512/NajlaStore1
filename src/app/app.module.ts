@@ -16,7 +16,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { CartlistComponent } from './cartlist/cartlist.component';
 import { CheckoutItemComponent } from './checkout-item/checkout-item.component';
-
+import { AccordionModule } from 'primeng/accordion';
+import { PanelModule } from 'primeng/panel';
+import { ButtonModule } from 'primeng/button';
+//import { RadioButtonModule } from 'primeng/radioButton';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,6 +38,10 @@ import { CheckoutItemComponent } from './checkout-item/checkout-item.component';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    AccordionModule,
+    PanelModule,
+    ButtonModule,
+   // RadioButtonModule,
   ],
   providers: [ { provide:CartService ,useValue: '',multi: true},ProductsService,ProductsService],
   bootstrap: [AppComponent]

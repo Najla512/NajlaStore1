@@ -43,8 +43,8 @@ validateName(_value:string){
 console.log(_value)
 }
 
-@HostListener('click')
-onClick() {
-    this.location.back();
-}
+// @HostListener('click')
+// onClick() {
+//     this.location.back();
+// }
 }
