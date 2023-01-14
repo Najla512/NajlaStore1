@@ -1,6 +1,7 @@
-import { Component, Input, Output } from '@angular/core';
+import { Component, HostListener, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { Cart } from '../models/Cart';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-checkout',
@@ -14,7 +15,7 @@ export class CheckoutComponent {
   fullname:string='';
   cart:Cart[]= [];
 
-  constructor(private router: Router){
+  constructor(private router: Router,private location: Location){
 
 //    this.product=new Cart[];
   }
@@ -40,5 +41,10 @@ submit(){
 }
 validateName(_value:string){
 console.log(_value)
+}
+
+@HostListener('click')
+onClick() {
+    this.location.back();
 }
 }

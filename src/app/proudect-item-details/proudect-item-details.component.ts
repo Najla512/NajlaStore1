@@ -1,10 +1,10 @@
-import { Component, Injectable } from '@angular/core';
+import { Component, HostListener, Injectable } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Cart } from '../models/Cart';
 import { product } from '../models/product';
 import { CartService } from '../services/cart.service';
 import { ProductsService } from '../services/products.service';
-
+import { Location } from '@angular/common';
 @Component({
   selector: 'app-proudect-item-details',
   templateUrl: './proudect-item-details.component.html',
@@ -26,7 +26,7 @@ export class ProudectItemDetailsComponent {
  cart1:Cart[]= [];
  cart:Cart[]= [];
    cartItems: Cart = new Cart;
-  constructor(private route: ActivatedRoute,private httpService: ProductsService,private router: Router, private local:CartService){}
+  constructor(private route: ActivatedRoute,private httpService: ProductsService,private router: Router, private local:CartService,private location: Location){}
   async ngOnInit() {
     this.sub = this.route.snapshot.params['id'];
     ( (await this.httpService.getUsers()).subscribe( res => {
@@ -93,5 +93,10 @@ localStorage.setItem('MyCART',JSON.stringify(this.cart))
   
   MyCard(){
     this.router.navigate(['/Mycard']);
+  }
+
+  @HostListener('click')
+  onClick() {
+      this.location.back();
   }
 }

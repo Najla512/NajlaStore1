@@ -1,9 +1,9 @@
-import { Component, Injectable, Input } from '@angular/core';
+import { Component, HostListener, Injectable, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Cart } from '../models/Cart';
 import { product } from '../models/product';
 import { CartService } from '../services/cart.service';
-
+import { Location } from '@angular/common';
 @Component({
   selector: 'app-cart-item',
   templateUrl: './cart-item.component.html',
@@ -18,7 +18,7 @@ export class CartItemComponent {
  
   cart:Cart[]= [];
 
-  constructor(private route: ActivatedRoute,private router: Router,private localStore: CartService){
+  constructor(private route: ActivatedRoute,private router: Router,private localStore: CartService,private location: Location){
     this.cartItems=new Cart;
   }
   
@@ -61,4 +61,8 @@ export class CartItemComponent {
   location.reload();
 
   }
+  @HostListener('click')
+onClick() {
+    this.location.back();
+}
 }
