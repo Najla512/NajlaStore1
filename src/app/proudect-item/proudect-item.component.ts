@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { Cart } from '../models/Cart';
 import { product } from '../models/product';
@@ -11,6 +11,7 @@ import { proudctslist } from '../models/proudcts_list';
 })
 export class ProudectItemComponent {
   @Input() product: proudctslist
+  @ViewChild('cartSuccess') cartSuccess: ElementRef | undefined;
   products: product = new product;
   q:number=1;
   cart:Cart[]= [];
@@ -48,14 +49,19 @@ export class ProudectItemComponent {
  }
  
  localStorage.setItem('MyCART',JSON.stringify(this.cart))
- alert('Added successfully')
+ //alert('Added successfully')
 }else{
      const newCartItem = new Cart
      newCartItem.p =p
      newCartItem.quantity = this.q
      this.cart1.push(newCartItem);
      localStorage.setItem('MyCART',JSON.stringify(this.cart1))
-     alert('Added successfully')
+     //alert('Added successfully')
+     
+     if(this.cartSuccess) {
+      alert('1')
+      this.cartSuccess.nativeElement.classList.add("cart-success-animation");
+    }
    }
  }
  

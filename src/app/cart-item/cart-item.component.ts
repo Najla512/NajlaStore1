@@ -1,4 +1,4 @@
-import { Component, HostListener, Injectable, Input } from '@angular/core';
+import { Component, EventEmitter, HostListener, Injectable, Input, Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Cart } from '../models/Cart';
 import { product } from '../models/product';
@@ -20,7 +20,7 @@ export class CartItemComponent {
   deleteSelection = ''
 
   cart:Cart[]= [];
-
+  @Output() removeItemFromCart: EventEmitter<product> = new EventEmitter();
   constructor(private route: ActivatedRoute,private router: Router,private localStore: CartService,private location: Location){
     this.cartItems=new Cart;
   }
@@ -36,14 +36,14 @@ export class CartItemComponent {
     this.router.navigate(['/Checkout']);
 
   }
-  delete(cartItem:Cart){
+  delete(cartItem:product){
 
-
+    this.removeItemFromCart.emit(cartItem);
    this.cart =JSON.parse(localStorage.getItem('MyCART') || '{}');
    
    //alert(Object.keys(this.cart).indexOf(cartItem))
    //let index = this.cart.indexOf(cartItem);
-  let index = this.cart.findIndex(o => o.p.id === cartItem.p.id);
+  let index = this.cart.findIndex(o => o.p.id === cartItem.id);
 
  // delete this.cart[index]
    this.cart.splice(index,1);

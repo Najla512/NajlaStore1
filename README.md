@@ -1,6 +1,12 @@
 The Store is an online store specialized in selling coffee cups.
 
-
+Core functionalities:
+1- view all products
+2- view product details 
+3- can add product to cart
+4- remove product from cart
+5- checkout the cart
+ 
 Instructions
 Download the files in this repository
 cd into the directory

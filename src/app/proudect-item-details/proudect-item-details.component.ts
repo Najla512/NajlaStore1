@@ -1,4 +1,4 @@
-import { Component, HostListener, Injectable } from '@angular/core';
+import { Component, ElementRef, HostListener, Injectable, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Cart } from '../models/Cart';
 import { product } from '../models/product';
@@ -26,6 +26,7 @@ export class ProudectItemDetailsComponent {
  cart1:Cart[]= [];
  cart:Cart[]= [];
    cartItems: Cart = new Cart;
+   @ViewChild('cartSuccess') cartSuccess: ElementRef | undefined;
   constructor(private route: ActivatedRoute,private httpService: ProductsService,private router: Router, private local:CartService,private location: Location){}
   async ngOnInit() {
     this.sub = this.route.snapshot.params['id'];
@@ -85,10 +86,13 @@ localStorage.setItem('MyCART',JSON.stringify(this.cart))
     newCartItem.quantity = this.q
     this.cart1.push(newCartItem);
     localStorage.setItem('MyCART',JSON.stringify(this.cart1))
-    alert('Added successfully')
+   // alert('Added successfully')
+   
   }
 }
-
+if(this.cartSuccess) {
+  this.cartSuccess.nativeElement.classList.add("cart-success-animation");
+}
   }
   
   MyCard(){
